@@ -2,71 +2,138 @@
 <html>
 
 <head>
-    <meta charset='utf-8'>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Infinitum</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta charset='utf-8'>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Infinitum</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../estilo.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="estilo.css" rel="stylesheet" type="text/css" />
 
-
+  <script src="javascript.js"></script>
 
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Infinitum
-            <img src="../media/logo.png" alt="" width="50" height="40">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href=../index.html>Inicio</a>
-                <a class="nav-link" href=../nosotros/nosotros.html>Nosotros</a>
-                <a class="nav-link" href=../servicios/servicios.html>Servicios</a>
-                <a class="nav-link active" aria-current="page" href=contacto.html>Contacto</a>
-            </div>
-        </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Infinitum
+      <img src="../media/logo.png" alt="" width="50" height="40">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href=../index.html>Inicio</a>
+        <a class="nav-link" href=../nosotros/nosotros.html>Nosotros</a>
+        <a class="nav-link" href=../servicios/servicios.html>Servicios</a>
+        <a class="nav-link active" aria-current="page" href=contacto.html>Contacto</a>
+      </div>
     </div>
+  </div>
 
 </nav>
 <br>
+
 <body>
-    <form>
-        <div class="form-group">
-          <label for="inputCorreo">Correo Electronico</label>
-          <input type="email" class="form-control" id="inputCorreo" placeholder="nombre@ejemplo.com">
+  <form id="formularioContacto">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="1" value="">
+    </div>
+    <div class="form-group">
+      <label for="inputCorreo">Correo Electronico</label>
+      <input type="email" class="form-control" id="inputCorreo" placeholder="nombre@ejemplo.com" name="2" value=" ">
+    </div>
+    <div class="form-group">
+      <label for="inputAlojoamiento">Seleccionar alojamiento</label>
+      <select class="form-control" id="inputAlojamiento" name="3">
+        <option>Seleccionar</option>
+        <option value="anapoima">Anapoima</option>
+        <option value="cartagena">Cartagena</option>
+        <option value="barranquilla">Barranquilla</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="fechaIngreso">Fecha Check In</label>
+      <input type="date" id="fechaIngreso" class="form-control" name="4" value="2021-07-22" min="2018-01-01"
+        max="2030-12-31">
+    </div>
+
+    <div class="form-group">
+      <label for="fechaSalida">Fecha Check Out</label>
+      <input type="date" id="fechaSalida" class="form-control" name="5" value="2021-07-22" min="2018-01-01"
+        max="2030-12-31">
+    </div>
+    <div class="form-group">
+      <label for="cantidadHuespedes">Cantidad de huespedes</label>
+      <select multiple class="form-control" id="cantidadHuespedes" name="6">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+      </select>
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" id="enviar" value="submit" onclick="validarFormulario()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Enviar</button>
+
+    <!-- <script>
+      document.getElementById("enviar").addEventListener("click", validarFormulario);
+    </script> -->
+    <!-- <script>
+
+      document.getElementById("enviar").addEventListener("click", validarFormulario);
+      function validarFormulario() {
+
+
+        var resultados = {
+          nombre: document.getElementById('nombre').value,
+          correo: document.getElementById('inputCorreo').value,
+          alojamiento: document.getElementById('inputAlojamiento').value,
+          fechaSalida: document.getElementById('fechaSalida').value,
+          fechaEntrada: document.getElementById('fechaIngreso').value,
+          cantidadHuespedes: document.getElementById('cantidadHuespedes').value
+        };
+
+        console.log(resultados);
+        event.preventDefault();
+      }
+
+    </script> -->
+  </form>
+ 
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Confirmar informacion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="form-group">
-          <label for="inputAlojoamiento">Seleccionar</label>
-          <select class="form-control" id="inputAlojoamiento">
-            <option>Seleccionar</option>
-            <option>Anapoima</option>
-            <option>Cartagena</option>
-            <option>Barranquilla</option>
-          </select>
+        <div class="modal-body">
+          <p id="datosFinales1"></p>
+          <p id="datosFinales2"></p>
+          <p id="datosFinales3"></p>
+          <p id="datosFinales4"></p>
+          <p id="datosFinales5"></p>
+          <p id="datosFinales6"></p>
         </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect2">Example multiple select</label>
-          <select multiple class="form-control" id="exampleFormControlSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Confirmar</button>
         </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Example textarea</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-      </form>
+      </div>
+    </div>
+  </div>
+
 </body>
+
 </html>
